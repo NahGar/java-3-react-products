@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ProductTable } from './components/ProductTable'
 
 const initProducts = [
@@ -25,7 +25,12 @@ const initProducts = [
 
 export const ProductsApp = ({title='Title default'}) => {
 
-    const [products, setProducts] = useState(initProducts);
+    //const [products, setProducts] = useState(initProducts);
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        setProducts(initProducts);
+    }, []);
 
     return (
         <div className='container my-4'>
